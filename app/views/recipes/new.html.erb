@@ -1,0 +1,20 @@
+<%= simple_form_for @recipe do |f| %>
+  <%= f.input :recipe_name, label: 'Nome da receita',
+    error: 'Nome da receita é obrigatório' %>
+  <%= f.input :kitchen, label: 'Cozinha',
+    error: 'Cozinha é obrigatório' %>
+  <%= f.input :food_type, label: 'Tipo de comida',
+    error: 'Tipo de comida é obrigatório' %>
+  <%= f.input :food_preference, label: 'Preferência de comida',
+    error: 'Preferência de comída é obrigatório' %>
+  <%= f.input :amount_people, label: 'Quantas pessoas serve' %>
+  <%= f.input :cooking_time, label: 'Tempo de preparo' %>
+  <%= f.input :difficulty_level, label: 'Nível de dificuldade' %>
+  <%= f.input :ingredients, label: 'Ingredientes',
+    error: 'Ingredientes é obrigatório' %>
+  <%= f.input :step_by_step, label: 'Passo a passo',
+    error: 'Passo a passo é obrigatório' %>
+  <%= f.input :photograph, label: 'Fotografia',
+    error: 'Só é permitido inserir imagem' %>
+  <%= f.button :submit, value: 'Cadastrar receita' %>
+<% end %>
