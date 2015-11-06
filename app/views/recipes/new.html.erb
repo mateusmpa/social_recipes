@@ -1,11 +1,14 @@
 <%= simple_form_for @recipe do |f| %>
   <%= f.input :recipe_name, label: 'Nome da receita',
     error: 'Nome da receita é obrigatório' %>
-  <%= f.association :kitchen, label: 'Cozinha', label_method: :kitchen_name,
+  <%= f.association :kitchen, label: 'Cozinha',
+    label_method: :kitchen_name,
     error: 'Cozinha é obrigatório' %>
-  <%= f.association :food_type, label: 'Tipo de comida', label_method: :food_type_name,
+  <%= f.association :food_type, label: 'Tipo de comida',
+    label_method: :food_type_name,
     error: 'Tipo de comida é obrigatório' %>
-  <%= f.input :food_preference, label: 'Preferência de comida',
+  <%= f.association :food_preference, label: 'Preferência de comida',
+    label_method: :food_preference_name,
     error: 'Preferência de comída é obrigatório' %>
   <%= f.input :amount_people, label: 'Quantas pessoas serve' %>
   <%= f.input :cooking_time, label: 'Tempo de preparo' %>

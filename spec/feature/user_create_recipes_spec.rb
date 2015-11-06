@@ -4,6 +4,7 @@ feature 'User create recipes' do
   before(:each) do
     @kitchen = create(:kitchen)
     @food_type = create(:food_type)
+    @food_preference = create(:food_preference)
     visit new_recipe_path
   end
 
@@ -11,7 +12,7 @@ feature 'User create recipes' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     select @kitchen.kitchen_name, from: 'Cozinha'
     select @food_type.food_type_name, from: 'Tipo de comida'
-    fill_in 'Preferência de comida', with: 'carnes'
+    select @food_preference.food_preference_name, from: 'Preferência de comida'
     fill_in 'Quantas pessoas serve', with: 6
     fill_in 'Tempo de preparo', with: 40
     fill_in 'Nível de dificuldade', with: 'fácil'
@@ -24,7 +25,7 @@ feature 'User create recipes' do
     expect(page).to have_content 'Bife a Milanesa'
     expect(page).to have_content @kitchen.kitchen_name
     expect(page).to have_content @food_type.food_type_name
-    expect(page).to have_content 'carnes'
+    expect(page).to have_content @food_preference.food_preference_name
     expect(page).to have_content 6
     expect(page).to have_content 40
     expect(page).to have_content 'fácil'
@@ -50,7 +51,7 @@ feature 'User create recipes' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     select @kitchen.kitchen_name, from: 'Cozinha'
     select @food_type.food_type_name, from: 'Tipo de comida'
-    fill_in 'Preferência de comida', with: 'carnes'
+    select @food_preference.food_preference_name, from: 'Preferência de comida'
     fill_in 'Ingredientes', with: 'Inserindo ingredientes...'
     fill_in 'Passo a passo', with: 'Inserindo passo a passo...'
 
@@ -59,7 +60,7 @@ feature 'User create recipes' do
     expect(page).to have_content 'Bife a Milanesa'
     expect(page).to have_content @kitchen.kitchen_name
     expect(page).to have_content @food_type.food_type_name
-    expect(page).to have_content 'carnes'
+    expect(page).to have_content @food_preference.food_preference_name
     expect(page).to have_content 'Inserindo ingredientes...'
     expect(page).to have_content 'Inserindo passo a passo...'
     expect(page).to have_xpath("//img[contains(@src, 'sem_foto.gif')]")
@@ -69,7 +70,7 @@ feature 'User create recipes' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     select @kitchen.kitchen_name, from: 'Cozinha'
     select @food_type.food_type_name, from: 'Tipo de comida'
-    fill_in 'Preferência de comida', with: 'carnes'
+    select @food_preference.food_preference_name, from: 'Preferência de comida'
     fill_in 'Ingredientes', with: 'Inserindo ingredientes...'
     fill_in 'Passo a passo', with: 'Inserindo passo a passo...'
     attach_file 'Fotografia', 'spec/test_files/test.txt'

@@ -1,6 +1,6 @@
 <% @recipes.each do |recipe| %>
   <%= link_to recipe.recipe_name, recipe %>
-  <%= recipe.food_preference %>
+  <%= recipe.food_preference.food_preference_name %>
   <%= recipe.food_type.food_type_name %>
   <%= recipe.kitchen.kitchen_name %>
   <%= recipe.difficulty_level %>
