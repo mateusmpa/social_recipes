@@ -1,13 +1,16 @@
 FactoryGirl.define do
   factory :recipe do
-    recipe_name 'MyString'
-    kitchen 'MyString'
-    food_type 'MyString'
-    food_preference 'MyString'
-    amount_people 1
-    cooking_time 1
-    difficulty_level 'MyString'
-    ingredients 'MyText'
-    step_by_step 'MyText'
+    recipe_name 'Bife a Milanesa'
+    kitchen 'Brasileira'
+    food_type 'acompanhamento'
+    food_preference 'carnes'
+    amount_people 6
+    cooking_time 40
+    difficulty_level 'fácil'
+    ingredients 'Inserindo ingredientes...'
+    step_by_step 'Inserindo passo a passo...'
+    photograph do
+      File.open(Rails.root.join('spec', 'test_files', 'bife_a_milanesa.jpg'))
+    end
   end
 end
