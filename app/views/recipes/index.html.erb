@@ -1,0 +1,7 @@
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe.recipe_name, recipe %>
+  <%= recipe.food_preference %>
+  <%= recipe.food_type %>
+  <%= recipe.kitchen %>
+  <%= recipe.difficulty_level %>
+<% end %>

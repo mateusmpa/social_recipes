@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-feature 'Create recipes' do
-  scenario 'successfully' do
-    visit new_recipe_path
+feature 'User create recipes' do
+  before(:each) { visit new_recipe_path }
 
+  scenario 'successfully' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     fill_in 'Cozinha', with: 'Brasileira'
     fill_in 'Tipo de comida', with: 'acompanhamento'
@@ -29,7 +29,7 @@ feature 'Create recipes' do
     expect(page).to have_xpath("//img[contains(@src, 'bife_a_milanesa.jpg')]")
   end
 
-  scenario 'empty mandatory fields' do
+  scenario 'with empty mandatory fields' do
     visit new_recipe_path
 
     click_button 'Cadastrar receita'
@@ -43,8 +43,6 @@ feature 'Create recipes' do
   end
 
   scenario 'without photograph' do
-    visit new_recipe_path
-
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     fill_in 'Cozinha', with: 'Brasileira'
     fill_in 'Tipo de comida', with: 'acompanhamento'
@@ -64,8 +62,6 @@ feature 'Create recipes' do
   end
 
   scenario 'invalid photograph' do
-    visit new_recipe_path
-
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     fill_in 'Cozinha', with: 'Brasileira'
     fill_in 'Tipo de comida', with: 'acompanhamento'
