@@ -1,0 +1,5 @@
+<%= simple_form_for @food_type do |f| %>
+  <%= f.input :food_type_name, label: 'Tipo de comida',
+    error: 'Tipo de comida é obrigatório' %>
+  <%= f.button :submit, value: 'Cadastrar tipo de comida' %>
+<% end %>
