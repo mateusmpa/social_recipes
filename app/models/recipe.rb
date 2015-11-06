@@ -8,4 +8,6 @@ class Recipe < ActiveRecord::Base
   }
   validates :recipe_name, :kitchen, :food_type, :food_preference, :ingredients,
             :step_by_step, presence: true
+
+  belongs_to :kitchen
 end

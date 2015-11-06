@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 feature 'Admin create kitchens' do
+  before(:each) { visit new_kitchen_path }
   scenario 'successfully' do
-    visit new_kitchen_path
-
     fill_in 'Cozinha', with: 'Brasileira'
 
     click_button 'Cadastrar cozinha'
@@ -12,8 +11,6 @@ feature 'Admin create kitchens' do
   end
 
   scenario 'with empty mandatory fields' do
-    visit new_kitchen_path
-
     click_button 'Cadastrar cozinha'
 
     expect(page).to have_content 'Cozinha é obrigatório'

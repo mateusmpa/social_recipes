@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106022120) do
+ActiveRecord::Schema.define(version: 20151106033626) do
 
   create_table "kitchens", force: :cascade do |t|
     t.string   "kitchen_name"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20151106022120) do
 
   create_table "recipes", force: :cascade do |t|
     t.string   "recipe_name"
-    t.string   "kitchen"
     t.string   "food_type"
     t.string   "food_preference"
     t.integer  "amount_people"
@@ -35,6 +34,9 @@ ActiveRecord::Schema.define(version: 20151106022120) do
     t.string   "photograph_content_type"
     t.integer  "photograph_file_size"
     t.datetime "photograph_updated_at"
+    t.integer  "kitchen_id"
   end
+
+  add_index "recipes", ["kitchen_id"], name: "index_recipes_on_kitchen_id"
 
 end
