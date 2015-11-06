@@ -3,13 +3,14 @@ require 'rails_helper'
 feature 'User create recipes' do
   before(:each) do
     @kitchen = create(:kitchen)
+    @food_type = create(:food_type)
     visit new_recipe_path
   end
 
   scenario 'successfully' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     select @kitchen.kitchen_name, from: 'Cozinha'
-    fill_in 'Tipo de comida', with: 'acompanhamento'
+    select @food_type.food_type_name, from: 'Tipo de comida'
     fill_in 'Preferência de comida', with: 'carnes'
     fill_in 'Quantas pessoas serve', with: 6
     fill_in 'Tempo de preparo', with: 40
@@ -22,7 +23,7 @@ feature 'User create recipes' do
 
     expect(page).to have_content 'Bife a Milanesa'
     expect(page).to have_content @kitchen.kitchen_name
-    expect(page).to have_content 'acompanhamento'
+    expect(page).to have_content @food_type.food_type_name
     expect(page).to have_content 'carnes'
     expect(page).to have_content 6
     expect(page).to have_content 40
@@ -48,7 +49,7 @@ feature 'User create recipes' do
   scenario 'without photograph' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     select @kitchen.kitchen_name, from: 'Cozinha'
-    fill_in 'Tipo de comida', with: 'acompanhamento'
+    select @food_type.food_type_name, from: 'Tipo de comida'
     fill_in 'Preferência de comida', with: 'carnes'
     fill_in 'Ingredientes', with: 'Inserindo ingredientes...'
     fill_in 'Passo a passo', with: 'Inserindo passo a passo...'
@@ -57,7 +58,7 @@ feature 'User create recipes' do
 
     expect(page).to have_content 'Bife a Milanesa'
     expect(page).to have_content @kitchen.kitchen_name
-    expect(page).to have_content 'acompanhamento'
+    expect(page).to have_content @food_type.food_type_name
     expect(page).to have_content 'carnes'
     expect(page).to have_content 'Inserindo ingredientes...'
     expect(page).to have_content 'Inserindo passo a passo...'
@@ -67,7 +68,7 @@ feature 'User create recipes' do
   scenario 'invalid photograph' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
     select @kitchen.kitchen_name, from: 'Cozinha'
-    fill_in 'Tipo de comida', with: 'acompanhamento'
+    select @food_type.food_type_name, from: 'Tipo de comida'
     fill_in 'Preferência de comida', with: 'carnes'
     fill_in 'Ingredientes', with: 'Inserindo ingredientes...'
     fill_in 'Passo a passo', with: 'Inserindo passo a passo...'
