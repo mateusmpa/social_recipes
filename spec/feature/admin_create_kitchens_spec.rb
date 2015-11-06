@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Admin create kitchens' do
   before(:each) { visit new_kitchen_path }
+
   scenario 'successfully' do
     fill_in 'Cozinha', with: 'Brasileira'
 
