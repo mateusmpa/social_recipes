@@ -3,7 +3,7 @@ FactoryGirl.define do
     recipe_name 'Bife a Milanesa'
     kitchen
     food_type
-    food_preference 'carnes'
+    food_preference
     amount_people 6
     cooking_time 40
     difficulty_level 'fácil'
