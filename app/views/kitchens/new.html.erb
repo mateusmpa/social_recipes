@@ -1,0 +1,5 @@
+<%= simple_form_for @kitchen do |f| %>
+  <%= f.input :kitchen_name, label: 'Cozinha',
+    error: 'Cozinha é obrigatório' %>
+  <%= f.button :submit, value: 'Cadastrar cozinha' %>
+<% end %>

@@ -11,22 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_151_105_150_443) do
-  create_table 'recipes', force: :cascade do |t|
-    t.string 'recipe_name'
-    t.string 'kitchen'
-    t.string 'food_type'
-    t.string 'food_preference'
-    t.integer 'amount_people'
-    t.integer 'cooking_time'
-    t.string 'difficulty_level'
-    t.text 'ingredients'
-    t.text 'step_by_step'
-    t.datetime 'created_at',              null: false
-    t.datetime 'updated_at',              null: false
-    t.string 'photograph_file_name'
-    t.string 'photograph_content_type'
-    t.integer 'photograph_file_size'
-    t.datetime 'photograph_updated_at'
+ActiveRecord::Schema.define(version: 20151106022120) do
+
+  create_table "kitchens", force: :cascade do |t|
+    t.string   "kitchen_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string   "recipe_name"
+    t.string   "kitchen"
+    t.string   "food_type"
+    t.string   "food_preference"
+    t.integer  "amount_people"
+    t.integer  "cooking_time"
+    t.string   "difficulty_level"
+    t.text     "ingredients"
+    t.text     "step_by_step"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "photograph_file_name"
+    t.string   "photograph_content_type"
+    t.integer  "photograph_file_size"
+    t.datetime "photograph_updated_at"
+  end
+
 end
