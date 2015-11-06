@@ -3,7 +3,7 @@
     error: 'Nome da receita é obrigatório' %>
   <%= f.association :kitchen, label: 'Cozinha', label_method: :kitchen_name,
     error: 'Cozinha é obrigatório' %>
-  <%= f.input :food_type, label: 'Tipo de comida',
+  <%= f.association :food_type, label: 'Tipo de comida', label_method: :food_type_name,
     error: 'Tipo de comida é obrigatório' %>
   <%= f.input :food_preference, label: 'Preferência de comida',
     error: 'Preferência de comída é obrigatório' %>

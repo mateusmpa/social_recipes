@@ -12,19 +12,19 @@ feature 'User views all recipes' do
   scenario 'successfully' do
     expect(page).to have_content @recipe.recipe_name
     expect(page).to have_content @recipe.food_preference
-    expect(page).to have_content @recipe.food_type
+    expect(page).to have_content @recipe.food_type.food_type_name
     expect(page).to have_content @recipe.kitchen.kitchen_name
     expect(page).to have_content @recipe.difficulty_level
 
     expect(page).to have_content @recipe_1.recipe_name
     expect(page).to have_content @recipe_1.food_preference
-    expect(page).to have_content @recipe_1.food_type
+    expect(page).to have_content @recipe_1.food_type.food_type_name
     expect(page).to have_content @recipe_1.kitchen.kitchen_name
     expect(page).to have_content @recipe_1.difficulty_level
 
     expect(page).to have_content @recipe_2.recipe_name
     expect(page).to have_content @recipe_2.food_preference
-    expect(page).to have_content @recipe_2.food_type
+    expect(page).to have_content @recipe_2.food_type.food_type_name
     expect(page).to have_content @recipe_2.kitchen.kitchen_name
     expect(page).to have_content @recipe_2.difficulty_level
   end
@@ -34,7 +34,7 @@ feature 'User views all recipes' do
 
     expect(page).to have_content @recipe.recipe_name
     expect(page).to have_content @recipe.food_preference
-    expect(page).to have_content @recipe.food_type
+    expect(page).to have_content @recipe.food_type.food_type_name
     expect(page).to have_content @recipe.kitchen.kitchen_name
     expect(page).to have_content @recipe.amount_people
     expect(page).to have_content @recipe.cooking_time

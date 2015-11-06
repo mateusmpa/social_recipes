@@ -10,4 +10,5 @@ class Recipe < ActiveRecord::Base
             :step_by_step, presence: true
 
   belongs_to :kitchen
+  belongs_to :food_type
 end
