@@ -1,0 +1,5 @@
+<%= simple_form_for @food_preference do |f| %>
+  <%= f.input :food_preference_name, label: 'Preferência de comida',
+    error: 'Preferência de comída é obrigatório' %>
+  <%= f.button :submit, value: 'Cadastrar preferência de comida' %>
+<% end %>
