@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 feature 'User create recipes' do
-  before(:each) { visit new_recipe_path }
+  before(:each) do
+    @kitchen = create(:kitchen)
+    visit new_recipe_path
+  end
 
   scenario 'successfully' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
-    fill_in 'Cozinha', with: 'Brasileira'
+    select @kitchen.kitchen_name, from: 'Cozinha'
     fill_in 'Tipo de comida', with: 'acompanhamento'
     fill_in 'Preferência de comida', with: 'carnes'
     fill_in 'Quantas pessoas serve', with: 6
@@ -18,7 +21,7 @@ feature 'User create recipes' do
     click_button 'Cadastrar receita'
 
     expect(page).to have_content 'Bife a Milanesa'
-    expect(page).to have_content 'Brasileira'
+    expect(page).to have_content @kitchen.kitchen_name
     expect(page).to have_content 'acompanhamento'
     expect(page).to have_content 'carnes'
     expect(page).to have_content 6
@@ -44,7 +47,7 @@ feature 'User create recipes' do
 
   scenario 'without photograph' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
-    fill_in 'Cozinha', with: 'Brasileira'
+    select @kitchen.kitchen_name, from: 'Cozinha'
     fill_in 'Tipo de comida', with: 'acompanhamento'
     fill_in 'Preferência de comida', with: 'carnes'
     fill_in 'Ingredientes', with: 'Inserindo ingredientes...'
@@ -53,7 +56,7 @@ feature 'User create recipes' do
     click_button 'Cadastrar receita'
 
     expect(page).to have_content 'Bife a Milanesa'
-    expect(page).to have_content 'Brasileira'
+    expect(page).to have_content @kitchen.kitchen_name
     expect(page).to have_content 'acompanhamento'
     expect(page).to have_content 'carnes'
     expect(page).to have_content 'Inserindo ingredientes...'
@@ -63,7 +66,7 @@ feature 'User create recipes' do
 
   scenario 'invalid photograph' do
     fill_in 'Nome da receita', with: 'Bife a Milanesa'
-    fill_in 'Cozinha', with: 'Brasileira'
+    select @kitchen.kitchen_name, from: 'Cozinha'
     fill_in 'Tipo de comida', with: 'acompanhamento'
     fill_in 'Preferência de comida', with: 'carnes'
     fill_in 'Ingredientes', with: 'Inserindo ingredientes...'

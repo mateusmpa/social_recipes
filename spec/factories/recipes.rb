@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :recipe do
     recipe_name 'Bife a Milanesa'
-    kitchen 'Brasileira'
+    kitchen
     food_type 'acompanhamento'
     food_preference 'carnes'
     amount_people 6

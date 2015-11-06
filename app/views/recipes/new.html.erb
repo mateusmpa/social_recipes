@@ -1,7 +1,7 @@
 <%= simple_form_for @recipe do |f| %>
   <%= f.input :recipe_name, label: 'Nome da receita',
     error: 'Nome da receita é obrigatório' %>
-  <%= f.input :kitchen, label: 'Cozinha',
+  <%= f.association :kitchen, label: 'Cozinha', label_method: :kitchen_name,
     error: 'Cozinha é obrigatório' %>
   <%= f.input :food_type, label: 'Tipo de comida',
     error: 'Tipo de comida é obrigatório' %>
