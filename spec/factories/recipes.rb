@@ -9,8 +9,5 @@ FactoryGirl.define do
     difficulty_level 'fácil'
     ingredients 'Inserindo ingredientes...'
     step_by_step 'Inserindo passo a passo...'
-    photograph do
-      File.open(Rails.root.join('spec', 'test_files', 'bife_a_milanesa.jpg'))
-    end
   end
 end

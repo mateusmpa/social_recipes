@@ -2,7 +2,9 @@ require 'rails_helper'
 
 feature 'User views all recipes' do
   before(:each) do
-    @recipe = create(:recipe)
+    @recipe = create(:recipe,
+                     photograph: File.open(Rails.root
+                      .join('spec', 'test_files', 'bife_a_milanesa.jpg')))
     @recipe_1 = create(:recipe, recipe_name: 'Lasanha')
     @recipe_2 = create(:recipe, recipe_name: 'Frango a passarinho',
                                 difficulty_level: 'difícil')
