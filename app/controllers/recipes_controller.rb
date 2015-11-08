@@ -20,6 +20,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def home
+    @recipes = Recipe.order(created_at: :asc).last(20)
+  end
+
   private
 
   def recipe_params
