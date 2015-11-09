@@ -1,3 +1,6 @@
+<% @food_preferences.each do |food_preference| %>
+  <%= link_to food_preference.food_preference_name, food_preference.recipes_path %>
+<% end %>
 <% @recipes.each do |recipe| %>
   <%= link_to recipe.recipe_name, recipe %>
   <%= recipe.food_preference.food_preference_name %>

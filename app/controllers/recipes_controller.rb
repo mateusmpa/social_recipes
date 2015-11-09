@@ -22,6 +22,11 @@ class RecipesController < ApplicationController
 
   def home
     @recipes = Recipe.order(created_at: :asc).last(20)
+    @food_preferences = FoodPreference.all
+  end
+
+  def list_recipes_for_food_preference
+    @recipes = Recipe.where(food_preference_id: params[:id])
   end
 
   private
