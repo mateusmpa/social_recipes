@@ -25,6 +25,8 @@ gem 'simple_form'
 # https://github.com/thoughtbot/paperclip
 gem 'paperclip', '~> 4.3'
 
+gem 'devise'
+
 group :test do
   gem 'capybara'
 end
